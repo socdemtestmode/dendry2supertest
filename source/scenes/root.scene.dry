@@ -1,5 +1,9 @@
 title: Root Scene
 new-page: true
+min-choices: 2
+on-arrival: {!
+Q.enemyname = Math.floor(Math.random() * 106)
+!}
 
 This is the root scene of "Dendry-starter-pack". The root scene is normally used
 as a hub: the choices allow you to go to different sections of your
@@ -7,5 +11,36 @@ story. In shorter works it may just function as the first scene in the
 game, sending the player off into the tree of choices. If the root
 scene doesn't have any choices that it can display, the game is over.
 
+[Книга]
+
 # Scenes with a top tag can be displayed here.
-- #top
+- @sceneone
+
+@sceneone
+title: Lol
+new-page: true
+tags: top
+max-choices: 3
+on-arrival: {!
+Q.var = (Math.floor(Math.random() * 5));
+!}
+go-to: lol
+
+@lol
+title: lol2
+go-to:lol2 if var < 0; lol4 if var > 0
+
+@lol2
+tags: netop
+
+111
+
+[+ var +]
+
+@lol4
+title: lol4
+tags: netop
+
+[+ var +]
+
+2222
